@@ -47,8 +47,8 @@ namespace EventUI.Controllers
             ticketCreateDTO.TicketID = "E"+id.ToString()+":"+ticketCreateDTO.EventName+"|U"+_userManager.FindByIdAsync(userId).Result.Email;
             if (_ticketService.GetSingleById(ticketCreateDTO.TicketID) != null)
             {
-                ViewBag.Error = "Sadece bir tane bilet alabilirsin";
-                return NoContent();
+                TempData["TicketError"] = "Sadece bir tane bilet alabilirsin";
+                return RedirectToAction("List","Event");
             }
             ticketCreateDTO.DateTime = _eventService.GetSingleById(id).DateTime;
 

@@ -6,7 +6,10 @@
     List<CityListDTO> cityList = ViewData["City"] as List<CityListDTO>;
 }
 
-
+@if (TempData["TicketError"] is not null)
+{
+    <p class="text-danger">@TempData["TicketError"]</p>
+}
 
     <form asp-asp-controller="Event" asp-action="List" >
         <div class="input-group mb-3">
