@@ -12,6 +12,13 @@ Proje codefirst mantığı ile yazılmış olup **Package Manager Console'da**
    <li>Console'a Update-Database diyerek</li>
 </ol> 
 veri tabanını ayağa kaldırabilirsiniz.
+**Bir hata ile karşılaşırsanız:**
+EventUI > appsettings.json ve appsettings.Development.json 'da "DefaultConnection" stringi ve 
+DataAccess>Concreate>EventsDbContext da 
+
+` protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){optionsBuilder.UseSqlServer("Connection string ");}`
+
+ Connection stringi değiştirin.ConnectionStringlerin **aynı olmasına ** lütfen dikkat ediniz.
 
 
 
