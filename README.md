@@ -26,6 +26,7 @@ DataAccess>Concreate>EventsDbContext da
 
 <ul>
   <li>Kullancılar en az 5 gün ilerisine bir etkinlik oluşturabilirler.</li>
+   <li>Etkinliğin kişi sayısı en az 5 olmalıdır.</li>
   <li>Oluşturalan etkinlik Admin kullanıcı tarafından onaylanır ya da iptal edilir.</li>
   <li>Her kullanıcı  her etkinliğe bir bilet alabilir.</li>
   <li>Biletler ücretsizdir ve kapıdaki görevli tarafından kontrol edilecektir.</li>  
