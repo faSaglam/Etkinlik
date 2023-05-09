@@ -60,25 +60,7 @@ namespace DataAccess.Extentions.EfSeedData
 
         }
 
-        //public static void SeedEvent(this ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Event>().HasData(
-        //       new Event()
-        //       {
-        //           EvenetID = 1,
-        //           CategoryID = 1,
-        //           Name = "Tarkan Konseri",
-        //           DateTime = new DateTime(2023, 12, 25),
-        //           Description = "Muhteşem bir konser seni bekliyor",
-        //           Quoto=3000,
-        //           CityID = 01,
-        //           Id= "6efaf626-cc7b-4916-8134-2baeee988b70",
-        //           IsConfirmed= false,
-        //           LeftTickets=3000
 
-
-        //       });
-        //}
         public static void SeedUser(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UserRole>().HasData(
