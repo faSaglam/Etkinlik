@@ -6,7 +6,12 @@ https://www.youtube.com/watch?v=qGN0msoOsYY
 demoyu linkten izleyebilirsiniz.
 
 ## Kurulum
-Proje codefirst mantığı ile yazılmış olup **Package Manager Console'da Update-Database** veri tabanını ayağa kaldırabilirsiniz.
+Proje codefirst mantığı ile yazılmış olup **Package Manager Console'da**
+<ol>
+  <li>Default Project'de DataAccess'i seçin</li>
+   <li>Console'a Update-Database diyerek</li>
+</ol> 
+veri tabanını ayağa kaldırabilirsiniz.
 
 
 
