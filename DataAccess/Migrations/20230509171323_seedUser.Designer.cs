@@ -4,6 +4,7 @@ using DataAccess.Concreate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(EventsDbContext))]
-    partial class EventsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230509171323_seedUser")]
+    partial class seedUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,7 +105,7 @@ namespace DataAccess.Migrations
                         {
                             Id = "b74ddd14-6340-4840-95c2-db12554843e5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0dc5ce32-8101-4fc7-8bb1-35d76ca0aaa6",
+                            ConcurrencyStamp = "bd59d5a8-0121-4f9d-9375-b8fbf22169da",
                             Email = "omfasaglam@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -110,9 +113,9 @@ namespace DataAccess.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "OMFASAGLAM@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHqsFq6NHHHsNJdQNrkL3P5+7ZyGyEuOoy52NPLKg9vjPdSWcdpsxi1lMZN+qsehfQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJ6ZAZmP8ODjCGTjfj2jZeh8l1cXzSHe7iHPhDkCn+XejmeIV2MwWOtJMZrxo7iyvA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e32dcc62-aa8f-44a4-b633-d59c137993c1",
+                            SecurityStamp = "628cedb4-1557-448a-a6de-f23c2b7cd523",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         },
@@ -120,7 +123,7 @@ namespace DataAccess.Migrations
                         {
                             Id = "dfdc4a1a-2ea3-4f31-b1e3-034e8da835a5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "670c0396-33af-4d61-b2a4-72cfc3bffbbd",
+                            ConcurrencyStamp = "efd73a78-b32d-4e3f-ab0c-e2d7e13e220b",
                             Email = "testuser@testuser.com",
                             EmailConfirmed = false,
                             FirstName = "Test",
@@ -128,9 +131,9 @@ namespace DataAccess.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TESTUSER@TESTUSER.COM",
                             NormalizedUserName = "TESTUSER@TESTUSER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFy4JNU+kU7cty7gAedD2gRiLGirET+dR2rq0L/WQCm8HJt2AMiJnh7GND9DYiQjrw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEALMFH2cxDDgqCl2uPpoClirKC+Tzx4IDS2vrgCpsHBWpMTUloWPn315oxSlZ5Pejg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d4745356-46f1-4a59-9a48-06721cf7bf4b",
+                            SecurityStamp = "470352b1-d805-4764-9425-93ac07838b6d",
                             TwoFactorEnabled = false,
                             UserName = "testuser@testuser.com"
                         });
@@ -320,60 +323,6 @@ namespace DataAccess.Migrations
                     b.HasIndex("Id");
 
                     b.ToTable("Events");
-
-                    b.HasData(
-                        new
-                        {
-                            EvenetID = 1,
-                            CategoryID = 1,
-                            CityID = 1,
-                            DateTime = new DateTime(2024, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Test",
-                            Id = "dfdc4a1a-2ea3-4f31-b1e3-034e8da835a5",
-                            IsConfirmed = true,
-                            LeftTickets = 100,
-                            Name = "Belediye Konseri",
-                            Quoto = 100
-                        },
-                        new
-                        {
-                            EvenetID = 2,
-                            CategoryID = 2,
-                            CityID = 1,
-                            DateTime = new DateTime(2024, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Test",
-                            Id = "dfdc4a1a-2ea3-4f31-b1e3-034e8da835a5",
-                            IsConfirmed = true,
-                            LeftTickets = 100,
-                            Name = "Açık Hava Tiyatrosu",
-                            Quoto = 100
-                        },
-                        new
-                        {
-                            EvenetID = 3,
-                            CategoryID = 2,
-                            CityID = 5,
-                            DateTime = new DateTime(2024, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Tiyatro Akademi - HBV",
-                            Id = "dfdc4a1a-2ea3-4f31-b1e3-034e8da835a5",
-                            IsConfirmed = true,
-                            LeftTickets = 100,
-                            Name = "Gergadanlar Oyunu",
-                            Quoto = 100
-                        },
-                        new
-                        {
-                            EvenetID = 4,
-                            CategoryID = 2,
-                            CityID = 2,
-                            DateTime = new DateTime(2024, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Tiyatro Akademi - HBV",
-                            Id = "dfdc4a1a-2ea3-4f31-b1e3-034e8da835a5",
-                            IsConfirmed = false,
-                            LeftTickets = 100,
-                            Name = "Fizikçiler Oyunu",
-                            Quoto = 100
-                        });
                 });
 
             modelBuilder.Entity("Entitites.Concreate.Ticket", b =>

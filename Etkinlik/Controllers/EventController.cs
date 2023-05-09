@@ -64,6 +64,7 @@ namespace EventUI.Controllers
                     LeftTickets= e.LeftTickets,
                     DateTime = e.DateTime,
                     CityName = e.City.Name,
+                    CategoryName = _categoryService.GetSingleCategory(e.CategoryID).CategoryName
                 }).ToList();
             #endregion
             #region Search

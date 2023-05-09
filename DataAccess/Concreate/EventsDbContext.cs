@@ -34,6 +34,7 @@ namespace DataAccess.Concreate
             modelBuilder.SeedCity();
             modelBuilder.SeedCategory();
             modelBuilder.SeedUser();
+            modelBuilder.SeedEvent();
 
             base.OnModelCreating(modelBuilder);
 

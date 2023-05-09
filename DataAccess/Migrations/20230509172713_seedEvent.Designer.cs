@@ -4,6 +4,7 @@ using DataAccess.Concreate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(EventsDbContext))]
-    partial class EventsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230509172713_seedEvent")]
+    partial class seedEvent
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,7 +105,7 @@ namespace DataAccess.Migrations
                         {
                             Id = "b74ddd14-6340-4840-95c2-db12554843e5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0dc5ce32-8101-4fc7-8bb1-35d76ca0aaa6",
+                            ConcurrencyStamp = "9ad2b7c1-bd8d-4b7f-baa0-9ff35d01093a",
                             Email = "omfasaglam@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -110,9 +113,9 @@ namespace DataAccess.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "OMFASAGLAM@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHqsFq6NHHHsNJdQNrkL3P5+7ZyGyEuOoy52NPLKg9vjPdSWcdpsxi1lMZN+qsehfQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEItgAcmnnSUobY5VzpUdvt4evJm07ACKn6C4AUp9v0odWisB2f3syTkIkWr9GTt7MA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e32dcc62-aa8f-44a4-b633-d59c137993c1",
+                            SecurityStamp = "d692f0fd-b95c-470e-beba-cef9d819d903",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         },
@@ -120,7 +123,7 @@ namespace DataAccess.Migrations
                         {
                             Id = "dfdc4a1a-2ea3-4f31-b1e3-034e8da835a5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "670c0396-33af-4d61-b2a4-72cfc3bffbbd",
+                            ConcurrencyStamp = "88c0f46b-8ed0-4dfc-b707-6da20e0ef79d",
                             Email = "testuser@testuser.com",
                             EmailConfirmed = false,
                             FirstName = "Test",
@@ -128,9 +131,9 @@ namespace DataAccess.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TESTUSER@TESTUSER.COM",
                             NormalizedUserName = "TESTUSER@TESTUSER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFy4JNU+kU7cty7gAedD2gRiLGirET+dR2rq0L/WQCm8HJt2AMiJnh7GND9DYiQjrw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKY7mtzwVMzX1HLTiFOsczpA7IPLr9Exx1i2geCf7vQnEB4scDwdeuJ7vsKvufmx6w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d4745356-46f1-4a59-9a48-06721cf7bf4b",
+                            SecurityStamp = "bbd9126b-c0db-493b-a437-b194a44dd47f",
                             TwoFactorEnabled = false,
                             UserName = "testuser@testuser.com"
                         });
@@ -369,9 +372,22 @@ namespace DataAccess.Migrations
                             DateTime = new DateTime(2024, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Tiyatro Akademi - HBV",
                             Id = "dfdc4a1a-2ea3-4f31-b1e3-034e8da835a5",
+                            IsConfirmed = true,
+                            LeftTickets = 100,
+                            Name = "Gergadanlar Oyunu",
+                            Quoto = 100
+                        },
+                        new
+                        {
+                            EvenetID = 5,
+                            CategoryID = 2,
+                            CityID = 2,
+                            DateTime = new DateTime(2024, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Tiyatro Akademi - HBV",
+                            Id = "dfdc4a1a-2ea3-4f31-b1e3-034e8da835a5",
                             IsConfirmed = false,
                             LeftTickets = 100,
-                            Name = "Fizikçiler Oyunu",
+                            Name = "Gergadanlar Oyunu",
                             Quoto = 100
                         });
                 });
