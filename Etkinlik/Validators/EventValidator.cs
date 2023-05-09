@@ -16,7 +16,7 @@ namespace EventUI.Validators
             RuleFor(e => e.CityID).NotNull().WithMessage("Bir şehir seçiniz");
             RuleFor(e => e.DateTime).NotNull();
             RuleFor(e => e.Description).NotNull();
-            RuleFor(e=>e.Quoto).NotNull();
+            RuleFor(e => e.Quoto).NotNull().WithMessage("Kişi sayısı giriniz").GreaterThanOrEqualTo(5).WithMessage("En az 5 kişi olabilir");
         }
     }
     public class EventUpdateValidator : AbstractValidator<Event>
@@ -29,7 +29,7 @@ namespace EventUI.Validators
             RuleFor(e => e.CityID).NotNull().WithMessage("Bir şehir seçiniz");
             RuleFor(e => e.DateTime).NotNull();
             RuleFor(e => e.Description).NotNull();
-            RuleFor(e => e.Quoto).NotNull();
+            RuleFor(e => e.Quoto).NotNull().WithMessage("Kişi sayısı giriniz").GreaterThanOrEqualTo(5).WithMessage("En az 5 kişi olabilir");
         }
     }
 }

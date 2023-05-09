@@ -14,6 +14,7 @@ namespace Entities.Concreate.ViewModels
         public string Description { get; set; }
 
         public int Quoto { get; set; }
+        public int LeftTickets { get; set; }
         public DateTime DateTime { get; set; }
 
         public string CategoryName { get; set; }

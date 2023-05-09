@@ -62,7 +62,7 @@ builder.Services.AddScoped<ITicketDal, EfTicketDal>();
 
 
 
-//builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationAutoValidation();
 //builder.Services.AddFluentValidation(a => a.RegisterValidatorsFromAssemblyContaining<Program>());
 builder.Services.AddScoped<IValidator<UserRegisterDTO>, UserValidator>();
 builder.Services.AddScoped<IValidator<UserUpdateDTO>, UserUpdateValidator>();

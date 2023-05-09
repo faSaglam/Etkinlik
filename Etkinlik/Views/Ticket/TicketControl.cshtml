@@ -1,10 +1,22 @@
-﻿
+﻿@{
+    Layout = "_LoginRegisterLayout";
+}
 
 <form asp-asp-controller="Ticket" asp-action="TicketControl">
+    <div class="mb-3">
+        <label for="EventId">Etkinlik Id'si</label>
+        <input type="number" name="EventId" />
+        <span class="text-secondary"> Lütfen etkinlik id'sini etkinlik sahibinden talep ediniz.</span>
+    </div>
+    <div class="mb-3">
 
-    <input type="number" name="EventId"  />
-    <input type="text" name="UserName" />
-    <input class="btn btn-primary" type="submit" value="Kontrol Et" />
+        <label for="UserName">Kullanıcı Adı</label>
+        <input type="text" name="UserName" />
+    </div>
+    <div class="mb-3">
+        <input class="btn btn-primary" type="submit" value="Kontrol Et" />
+    </div>
+  
 
 </form>
 @ViewBag.Info

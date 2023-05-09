@@ -19,9 +19,15 @@
         <span asp-validation-for="Password"></span>
     </div>
 
-    <button class="btn btn-primary" type="submit">Giriş</button>
+    <button class="btn btn-primary mb-3" type="submit">Giriş</button>
 </form>
+<p>
+    <a class="text-dark mt-3 " asp-area="" asp-controller="User" asp-action="Register">Üye ol</a>
+</p>
+<p>
+    <a class="text-dark mt-3 ml-3" asp-area="" asp-controller="Ticket" asp-action="TicketControl">Bilet Kontrol</a>
+</p>
 
-<a class="text-dark" asp-area="" asp-controller="User" asp-action="Register">Üye ol</a>
+
 
 

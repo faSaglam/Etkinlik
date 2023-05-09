@@ -31,6 +31,7 @@ namespace EventUI.Controllers
             _cityService = cityService;
          
         }
+        [Authorize(Roles = "User,Admin")]
         public IActionResult List(string name,string category,string city)
         {
             #region CategoryListForDropBox
@@ -118,6 +119,7 @@ namespace EventUI.Controllers
             return View(eventList);
         }
 
+        [Authorize(Roles = "User,Admin")]
         public IActionResult Create()
         {
             #region CategoryListForDropBox
@@ -143,6 +145,7 @@ namespace EventUI.Controllers
             return View();
 
         }
+        [Authorize(Roles = "User,Admin")]
 
         [HttpPost]
         public IActionResult Create(EventCreateDTO model)
@@ -183,6 +186,12 @@ namespace EventUI.Controllers
                 ViewBag.Error = "Geçmiş zamanda bir etkinlik oluşturulamaz.En az 5 gün ileri tarihte bir etkinlik oluşturunuz";
                 return View();
             }
+            if(model.Quoto < 5)
+            {
+                ViewBag.ErrorQuoto= "Etkinlik en az 5 kişilik olabilir.";
+                return View();
+
+            }
 
             Event eventForSave = new Event
             {
@@ -199,7 +208,7 @@ namespace EventUI.Controllers
             return RedirectToAction("MyEvents");
 
         }
-
+        [Authorize(Roles = "User,Admin")]
         public IActionResult MyEvents()
         {
             var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -216,6 +225,8 @@ namespace EventUI.Controllers
                     DateTime = e.DateTime,
                     Description = e.Description,
                     Quoto =e.Quoto,
+                    LeftTickets = e.LeftTickets,
+                   
                     Situation = e.IsConfirmed,
                     CategoryName = _categoryService.GetSingleCategory(e.CategoryID).CategoryName
                    
@@ -345,7 +356,7 @@ namespace EventUI.Controllers
 
 
         }
-
+        [Authorize(Roles = "User,Admin")]
         public IActionResult Delete(int id)
         {
             Event eventDetail = _eventService.GetSingleById(id);
@@ -361,7 +372,8 @@ namespace EventUI.Controllers
             }
             return View(eventDetail);
         }
-     
+        [Authorize(Roles = "User,Admin")]
+
         [HttpPost]
         public IActionResult Delete(Event eventToDeleteId)
         {
@@ -375,7 +387,7 @@ namespace EventUI.Controllers
           return RedirectToAction("List");
 
         }
-
+        [Authorize(Roles = "User,Admin")]
         public IActionResult Edit(int id)
         {
             List<CategoryListDTO> categoryList = _categoryService.GetAll().Select(c => new CategoryListDTO
@@ -403,6 +415,7 @@ namespace EventUI.Controllers
             return View(eventEntry);
             
         }
+        [Authorize(Roles = "User,Admin")]
         [HttpPost]
         public IActionResult Edit(
         int id,
@@ -427,6 +440,8 @@ namespace EventUI.Controllers
                 Name = c.Name,
             }).ToList();
             ViewData["City"] = cityList;
+
+
             var eventToUpdate = _eventService.GetSingleById(id); 
             if(eventToUpdate == null)
             {
@@ -444,7 +459,7 @@ namespace EventUI.Controllers
 
             eventToUpdate.DateTime = DateTime;
             eventToUpdate.CityID = CityID;  
-            eventToUpdate.Quoto = Quoto;
+         
             eventToUpdate.CategoryID = CategoryID;
             if(CityID == 0 || CategoryID == 0)
             {
@@ -456,8 +471,8 @@ namespace EventUI.Controllers
                 ViewBag.Error = "Yeni kişi sayısı satılan biletlerden az olamaz.";
                 return View();
             }
-            eventToUpdate.LeftTickets = Quoto - LeftTickets;
-
+            eventToUpdate.LeftTickets = Quoto - (eventToUpdate.Quoto - LeftTickets);
+            eventToUpdate.Quoto = Quoto;
             _eventService.Update(eventToUpdate);
             return RedirectToAction("List");
 

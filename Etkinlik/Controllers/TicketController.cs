@@ -4,13 +4,16 @@ using Business.Abstract;
 using Entities.Concreate;
 using Entities.Concreate.ViewModels;
 using Entitites.Concreate;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using System.Diagnostics.Tracing;
 using System.Security.Claims;
 
 namespace EventUI.Controllers
 {
+   
     public class TicketController : Controller
     {
         private readonly ITicketService _ticketService;
@@ -27,14 +30,20 @@ namespace EventUI.Controllers
             _userManager = userManager;
             _cityService = cityService;
         }
-
+        [Authorize(Roles = "User,Admin")]
         public IActionResult Create(int id)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (userId == null)
             {
-                return View("Error");
+                return RedirectToAction("Loign","User");
+            }
+            if(_eventService.GetSingleById(id).LeftTickets == 0)
+            {
+
+                TempData["TicketError"] = "Biletler Tükendi";
+                return RedirectToAction("List", "Event");
             }
             
             TicketCreateDTO ticketCreateDTO = new TicketCreateDTO();
@@ -56,6 +65,7 @@ namespace EventUI.Controllers
            
             return View(ticketCreateDTO);
         }
+        [Authorize(Roles = "User,Admin")]
         [HttpPost]
         public IActionResult Confirm(int id,string ticketId)
         {
@@ -77,6 +87,7 @@ namespace EventUI.Controllers
 
             return RedirectToAction("List");
         }
+        [Authorize(Roles = "User,Admin")]
         public IActionResult List()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -100,6 +111,7 @@ namespace EventUI.Controllers
             return View(list);
 
         }
+        [Authorize(Roles = "User,Admin")]
         public IActionResult Delete(string id)
         {
             var ticket = _ticketService.GetSingleById(id);

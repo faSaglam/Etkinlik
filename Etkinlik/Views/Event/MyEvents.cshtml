@@ -6,15 +6,17 @@
 {
     <p>@TempData["Error"]</p>
 }
+<span class="text-secondary">Etkinlik id'sini bilet kontrolü için görevli ile paylaşmayı unutmayınız</span>
 <table class="table">
     <thead>
         <tr>
-
+            <th>Etkinlik Id</th>
             <th>Etkinlik Adı</th>
             <th>Kategori</th>
             <th >Şehri</th>
+            <th>Toplam Katılımcı</th>
             <th>Kalan Katılımcı</th>
-            <th >Tarih</th>
+            <th>Tarih</th>
             <th >Tanım</th>
             <th>Durum</th>
             <th></th>
@@ -26,10 +28,12 @@
         {
 
             <tr>
+                <td>@item.EvenetID</td>
                 <td>@item.Name</td>
                 <td>@item.CategoryName</td>
                 <td>@item.CityName</td>
                 <td>@item.Quoto</td>
+                <td>@item.LeftTickets</td>
                 <td>@item.DateTime</td>
              
                 <td>@item.Description</td>

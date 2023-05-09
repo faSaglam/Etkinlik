@@ -6,7 +6,11 @@
 }
 @if(ViewBag.Error is not null)
 {
-    <span>@ViewBag.Error</span>
+    <span class="text-danger">@ViewBag.Error</span>
+}
+@if (ViewBag.ErrorQuoto is not null)
+{
+    <span class="text-danger">@ViewBag.ErrorQuoto</span>
 }
 <form asp-asp-controller="Event" asp-action="Create">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>

@@ -126,6 +126,10 @@ namespace EventUI.Controllers
         public async Task<IActionResult> Update()
         {
             var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return RedirectToAction("Login", "User");
+            }
             UserUpdateDTO userUpdate = new UserUpdateDTO()
             {
                 FirstName = user.FirstName,
@@ -143,7 +147,7 @@ namespace EventUI.Controllers
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (userId == null)
             {
-                return NoContent();
+                return RedirectToAction("Login", "User");
             }
    
          
@@ -170,7 +174,7 @@ namespace EventUI.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NoContent();
+                return RedirectToAction("Login", "User");
             }
 
             
@@ -189,6 +193,11 @@ namespace EventUI.Controllers
         public async Task<IActionResult> Profile()
         {
             var user = await _userManager.GetUserAsync(User);
+            if(user == null)
+            {
+                return RedirectToAction("Login", "User");
+
+            }
 
             UserProfileDTO profile = new UserProfileDTO()
             {
