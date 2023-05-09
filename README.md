@@ -12,13 +12,23 @@ Proje codefirst mantığı ile yazılmış olup **Package Manager Console'da**
    <li>Console'a Update-Database diyerek</li>
 </ol> 
 veri tabanını ayağa kaldırabilirsiniz.
-**Bir hata ile karşılaşırsanız:**
+<br/>
+Not:
+<br/>
+Admin kullanıcı için , Kullanıcı adı: omfasaglam@gmail.com , şifre Admin*123 ;
+<br/>
+User için Kullanıcı adı : testuser@testuser.com , şifre : Test-123
+<br/>
+Sisteme default olarak eklenmiştir.
+Sistemde testuser@testuser.com'a ait default etkinlikler mevcuttur.
+<hr/>
+Bir hata ile karşılaşırsanız:
 EventUI > appsettings.json ve appsettings.Development.json 'da "DefaultConnection" stringi ve 
 DataAccess>Concreate>EventsDbContext da 
 
 ` protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){optionsBuilder.UseSqlServer("Connection string ");}`
 
- Connection stringi değiştirin.ConnectionStringlerin **aynı olmasına ** lütfen dikkat ediniz.
+ Connection stringi değiştirin.ConnectionStringlerin **aynı olmasına** lütfen dikkat ediniz.
 
 
 
@@ -34,6 +44,7 @@ DataAccess>Concreate>EventsDbContext da
 
 
 ## Normal Kullanıcılar İçin (User) 
+
 
 ### Üye Olma ve Güncelleme
 **/User/Register** rotasında kullanıclar mail adresi , isim , soyisim ve en az 8 karakterden oluşan , en az bir büyük harf, bir küçük harf ve bir rakamdan oluşan bir şifre ile üye olabilirler.
