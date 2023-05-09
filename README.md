@@ -1,8 +1,16 @@
 # Etkinlik
 
 Konfidens .Net Hiring Chalange için geliştirilmiştir.
+##Demo
+https://www.youtube.com/watch?v=qGN0msoOsYY 
+demoyu linkten izleyebilirsiniz.
 
-## Kullanım Seneryosu
+## Kurulum
+Proje codefirst mantığı ile yazılmış olup **Package Manager Console'da Update-Database** veri tabanını ayağa kaldırabilirsiniz.
+
+
+
+# Kullanım Seneryosu
 
 <ul>
   <li>Kullancılar en az 5 gün ilerisine bir etkinlik oluşturabilirler.</li>
