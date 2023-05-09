@@ -1,0 +1,18 @@
+﻿@using Entities.Concreate.ViewModels;
+@model UserProfileDTO
+
+<div class="text-left m-auto">
+    <p class="fw-bold fs-4">Profilim</p>
+    <p><span class="fw-bold">Kullanıcı adı: </span><span class="fw-normal ">@Model.UserName</span></p>
+    <p><span class="fw-bold ">Email: </span><span class="fw-normal ">@Model.Email</span></p>
+    <p><span class="fw-bold ">İsim: </span><span class="fw-normal ">@Model.FirstName @Model.LastName</span></p>
+</div>
+<div>
+    <a class="btn btn-primary btn-group" asp-area="" asp-controller="User" asp-action="Update">Bilgilerimi Güncelle</a>
+    <a class="btn btn-primary btn-group" asp-area="" asp-controller="User" asp-action="UpdatePassword">Şifremi Güncelle</a>
+</div>
+<hr />
+<a class="btn btn-primary btn-group" asp-area="" asp-controller="Event" asp-action="MyEvents">Etkinlikerim</a>
+<a class="btn btn-primary btn-group" asp-area="" asp-controller="Ticket" asp-action="List">Biletlerim</a>
+ 
+

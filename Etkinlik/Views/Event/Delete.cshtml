@@ -1,0 +1,14 @@
+﻿@using Entitites.Concreate;
+@model Event
+
+@if(TempData["Error"] is not null)
+{
+    <p>@TempData["Error"]</p>
+}
+
+<p> Bu kategoriyi silmek istediğinizden emin misiniz? | @Model.Name</p>
+<form asp-action="Delete">
+    <input type="hidden" asp-for="EvenetID" />
+    <input type="submit" value="Sil" />
+</form>
+

@@ -1,0 +1,35 @@
+﻿@using Entities.Concreate.ViewModels;
+@model List<CategoryListDTO>
+
+<p class="fw-bold fs-3">Şehirler</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th scope="col">Kategori Adı</th>
+
+            <th></th>
+         
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@item.CategoryName</td>
+
+
+                <td>
+                    <a asp-controller="Category" asp-action="EventsOfCategories" asp-route-id="@item.CategoryID" class="btn btn-success">Etkinlikleri Gör</a>
+                    <button class="btn btn-light">@Html.ActionLink( "Sil", "Delete", new { CategoryID = item.CategoryID } )</button>
+
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<a asp-controller="Category" asp-action="CategoryCreate" class="btn btn-primary">Kategori Ekle</a>
+
+

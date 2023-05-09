@@ -1,0 +1,30 @@
+﻿@using Entities.Concreate.ViewModels;
+@model TicketCreateDTO
+
+@if (ViewBag.Error is not null)
+{
+    <p>@ViewBag.Error</p>
+    
+}
+<div class="card">
+<div class="card-header text-center">
+    <p>@Model.EventName</p>
+</div>
+<div class="card-body">
+    <p>Bilet No: @Model.TicketID</p>
+    <p>Bilet Sahibi : @Model.FirstName @Model.LastName</p>
+    <p>Tarih: @Model.DateTime</p>
+   
+</div>
+<div class="card-footer">
+        <form asp-asp-controller="Ticket" asp-action="Confirm">
+
+            <input type="hidden" name="id" value="@Model.EventId" />
+            <input type="hidden" name="ticketId" value="@Model.TicketID"/>
+            <input class="btn btn-primary" type="submit" value="Onayla" />
+
+        </form>
+</div>
+</div>
+
+

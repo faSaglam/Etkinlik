@@ -1,0 +1,8 @@
+﻿@using Entitites.Concreate;
+@model City
+
+<p> Bu şehri silmek istediğinizden emin misiniz? | @Model.Name</p>
+<form asp-action="Delete">
+    <input type="hidden" asp-for="CityID" />
+    <input type="submit" value="Sil" />
+</form>

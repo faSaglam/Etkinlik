@@ -1,0 +1,35 @@
+﻿@using Entities.Concreate.ViewModels;
+@model List<CityListDTO>
+
+<p class="fw-bold fs-3">Şehirler</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th scope="col">Şehir Adı</th>
+            
+             <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@item.Name</td>
+             
+
+                <td>
+                    <a asp-controller="City" asp-action="EventsOfCity" asp-route-id="@item.CityID" class="btn btn-success">Etkinlikleri Gör</a>
+                    <button class="btn btn-light">@Html.ActionLink( "Sil", "Delete", new { CityID = item.CityID } )</button>
+                   
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<a asp-controller="City" asp-action="CityCreate"  class="btn btn-primary">Şehir Ekle</a>
+

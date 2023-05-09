@@ -1,0 +1,57 @@
+﻿@using Entities.Concreate.ViewModels;
+
+@model List<EventListDTO>
+@{
+    List<CategoryListDTO> categoryList = ViewData["category"] as List<CategoryListDTO>;
+    List<CityListDTO> cityList = ViewData["City"] as List<CityListDTO>;
+}
+
+
+
+    <form asp-asp-controller="Event" asp-action="List" >
+        <div class="input-group mb-3">
+        <input type="text" name="name" class="form-control" />
+        <select id="category" name="category">
+        <option value="" selected="selected">Kategoriler</option>
+            @foreach (CategoryListDTO category in categoryList)
+            {
+                <option value="@category.CategoryID">@category.CategoryName</option>
+            }
+
+        </select>
+        <select id="city" name="city">
+            <option value="" selected="selected">Tüm Şehirler</option>
+            @foreach (CityListDTO city in cityList)
+            {
+                <option value="@city.CityID">@city.Name</option>
+            }
+
+        </select>
+
+     
+        <input class="btn btn-primary" type="submit" value="Ara" />
+        </div>
+    </form>
+
+    
+    @foreach (EventListDTO item in Model)
+        {
+            
+                <div class="card">
+                    <div class="card-header">
+                        <h5>@item.Name</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">@item.Description</p>
+                        <hr/>
+                        <p class="card-text">Kişi Sayısı : @item.Quoto</p>
+                        <p class="card-text">Kalan Bilet Sayısı : @item.LeftTickets</p>
+                         <p class="card-text">Şehir : @item.CityName</p>
+            <a asp-controller="Ticket" asp-action="Create" asp-route-id="@item.EvenetID" class="btn btn-success">Bilet Al</a>
+                    </div>
+                </div>
+           
+        }
+   
+
+

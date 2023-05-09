@@ -1,0 +1,24 @@
+﻿@using Entities.Concreate.ViewModels;
+@model List<CategoryListDTO>
+
+
+
+<div class="container text-center">
+    <h4>Kategoriler</h4>
+    
+        @foreach (var item in Model)
+        {
+
+          
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.CategoryName</h5>
+                      
+                        <a asp-controller="Category" asp-action="EventsOfCategories" asp-route-id="@item.CategoryID" class="btn btn-success">Etkinlikleri Görüntüle</a>
+                    </div>
+                </div>
+           
+        }
+
+   
+</div>

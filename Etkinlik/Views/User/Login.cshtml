@@ -1,0 +1,27 @@
+﻿@using Entities.Concreate.ViewModels;
+@model UserLoginDTO
+@{
+    Layout = "_LoginRegisterLayout";
+}
+
+
+<form asp-action="Login">
+
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Email"></label>
+        <input type="email" class="form-control" asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Password">Şifre</label>
+        <input type="password" class="form-control" asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Giriş</button>
+</form>
+
+<a class="text-dark" asp-area="" asp-controller="User" asp-action="Register">Üye ol</a>
+
+

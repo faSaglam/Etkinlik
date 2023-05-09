@@ -1,0 +1,24 @@
+﻿@using Entities.Concreate.ViewModels;
+
+@model List<CityListDTO>
+
+ 
+ <ul class="list-group text-start ">
+    @foreach (var item in Model)
+    {
+        <li class="list-group-item" >
+            <a asp-controller="Category" asp-action="EventsOfCategories" asp-route-id="@item.CityID" >@item.Name</a>
+        </li>
+
+    }
+    <li class="list-group-item">
+        <a asp-controller="Event" asp-action="List" >Tüm Etkinlikler</a>
+    </li>
+
+ </ul>
+     
+
+
+
+
+

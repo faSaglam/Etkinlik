@@ -1,0 +1,69 @@
+﻿@using Entities.Concreate.ViewModels;
+@model List<EvenetsMyEventsListDTO>
+
+
+@if (TempData["Error"] is not null)
+{
+    <p>@TempData["Error"]</p>
+}
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>Etkinlik Adı</th>
+            <th>Kategori</th>
+            <th >Şehri</th>
+            <th>Kalan Katılımcı</th>
+            <th >Tarih</th>
+            <th >Tanım</th>
+            <th>Durum</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.CategoryName</td>
+                <td>@item.CityName</td>
+                <td>@item.Quoto</td>
+                <td>@item.DateTime</td>
+             
+                <td>@item.Description</td>
+                @if(item.Situation == false)
+                {
+                    <td>Onay bekliyor</td>
+                }
+                @if (item.Situation == true)
+                {
+                    <td>Onaylandı</td>
+                }
+                @if (DateTime.Now.AddDays(5) > item.DateTime)
+                {
+                    <td>
+                        <a class="btn btn-outline-warning">İptal Edilemez</a>
+                    </td>
+                    <td>
+                        <a  class="btn btn-outline-warning">Güncellenemez</a>
+                    </td>
+                }
+                @if (DateTime.Now.AddDays(5) <= item.DateTime)
+                {
+                    <td>
+                        <a asp-controller="Event" asp-action="Delete" asp-route-id="@item.EvenetID" class="btn btn-warning">İptal Et</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Event" asp-action="Edit" asp-route-id="@item.EvenetID" class="btn btn-warning">Güncelle</a>
+                    </td>
+                }
+              
+              
+            </tr>
+        }
+
+    </tbody>
+</table>
+<a asp-controller="Event" asp-action="Create" class="btn btn-primary ">Yeni Bir Etkinlik Oluştur</a>

@@ -1,0 +1,86 @@
+﻿@using Entities.Concreate.ViewModels;
+
+@model List<EventControlDTO>
+@{
+    List<CategoryListDTO> categoryList = ViewData["category"] as List<CategoryListDTO>;
+    List<CityListDTO> cityList = ViewData["City"] as List<CityListDTO>;
+}
+
+
+
+<form asp-asp-controller="Event" asp-action="EventControl">
+    <div class="input-group mb-3">
+        <input type="text" name="name" class="form-control" />
+        <select id="category" name="category">
+            <option value="" selected="selected">Kategoriler</option>
+            @foreach (CategoryListDTO category in categoryList)
+            {
+                <option value="@category.CategoryID">@category.CategoryName</option>
+            }
+
+        </select>
+        <select id="city" name="city">
+            <option value="" selected="selected">Tüm Şehirler</option>
+            @foreach (CityListDTO city in cityList)
+            {
+                <option value="@city.CityID">@city.Name</option>
+            }
+
+        </select>
+
+
+        <input class="btn btn-primary" type="submit" value="Ara" />
+    </div>
+</form>
+
+
+
+    <table class="table">
+        <thead>
+            <tr>
+            <th>Etkinlik Adı</th>
+            <th>Tanım</th>
+            <th>Tarih</th>
+            <th>Kategori</th>
+            <th>Şehir</th>
+            <th>Kişi Sayısı</th>
+            <th>Durum</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>@item.Name</td> 
+                    <td>@item.Description</td>
+                    <td>@item.DateTime</td>
+                    <td>@item.CategoryName</td>
+                    <td>@item.CityName</td>
+                    <td>@item.Quoto</td>
+                    <td>@item.IsConfirmed</td>
+
+                @if(item.IsConfirmed == false)
+                {
+                    <td>
+                        <button class="btn btn-light">@Html.ActionLink( "Onayla", "Confirm", new { id = item.EvenetID } )</button>
+
+                    </td>
+                }
+              
+               <td>
+                    <button class="btn btn-light">@Html.ActionLink( "Sil", "Delete", new { id = item.EvenetID } )</button>
+
+                </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+ 
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+﻿@using Entities.Concreate.ViewModels;
+@model List<EventListDTO>
+
+@foreach (var item in Model)
+{
+    <div class="col-9">
+        <div class="card">
+            <div class="card-header">
+                <h5>@item.Name</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">@item.Description</p>
+                <hr />
+                <p class="card-text">Kişi Sayısı : @item.Quoto</p>
+                <p class="card-text">Şehir : @item.CityName</p>
+                <a href="#" class="btn btn-success">Bilet al</a>
+            </div>
+        </div>
+    </div>
+}
